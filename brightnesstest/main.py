@@ -24,7 +24,19 @@ class BrightApp(App):
         # The application wil crash if you go above 255 brightness, or below 0.
         # You will also have issues if it is set in automatic brightness mode,
         # So you should check for that first.
-        print System.ADB_ENABLED, "===ADB ENABLED"
+        #auto_mode = System.getInt(currentActivity.getContentResolver(),
+        #                          System.SCRREEN_BRIGHTNESS_MODE_AUTOMATIC)
+        mode = System.getInt(currentActivity.getContentResolver(),
+                             System.SCREEN_BRIGHTNESS_MODE)
+        #This disables automatic mode
+        print mode
+        if mode == 1:
+            print "System is in automatic mode"
+            System.putInt(currentActivity.getContentResolver(),
+                        System.SCREEN_BRIGHTNESS_MODE,
+                        System.SCREEN_BRIGHTNESS_MODE_MANUAL)
+        else:
+            print "System is already in manual mode"
         print System.getInt(currentActivity.getContentResolver(),
                             System.SCREEN_BRIGHTNESS), "== CURRENT BRIGHTNESS"
         System.putInt(currentActivity.getContentResolver(),
