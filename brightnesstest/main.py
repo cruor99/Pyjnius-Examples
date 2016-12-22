@@ -33,4 +33,3 @@ class BrightApp(App):
 
 if __name__ == "__main__":
     BrightApp().run()
-https://developer.android.com/reference/android/provider/Settings.System.html
