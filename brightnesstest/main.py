@@ -19,6 +19,11 @@ class BrightApp(App):
 
         # You need to check if it is in automatic mode first, I think
         # You need to use getContentResolver from mainactivity
+        # Refer to https://developer.android.com/reference/android/provider/Settings.System.html
+        # for more information on using the System settings.
+        # The application wil crash if you go above 255 brightness, or below 0.
+        # You will also have issues if it is set in automatic brightness mode,
+        # So you should check for that first.
         print System.ADB_ENABLED, "===ADB ENABLED"
         print System.getInt(currentActivity.getContentResolver(),
                             System.SCREEN_BRIGHTNESS), "== CURRENT BRIGHTNESS"
@@ -28,3 +33,4 @@ class BrightApp(App):
 
 if __name__ == "__main__":
     BrightApp().run()
+https://developer.android.com/reference/android/provider/Settings.System.html
