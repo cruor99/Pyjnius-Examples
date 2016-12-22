@@ -1,0 +1,10 @@
+FloatLayout:
+    BoxLayout:
+        orientation: "vertical"
+        pos_hint: {"center_x": .5, "center_y": .5}
+        Button:
+            text: "Raise by 10"
+            on_release: app.set_android_brightness("raise")
+        Button:
+            text: "Decrease by 10"
+            on_release: app.set_android_brightness("decrease")
